@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IO2</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/leaflet.css">
+	<link rel="stylesheet" type="text/css" href="css/leaflet.label.css">
+    <script src="js/leaflet.js"></script>
+   	<style type="text/css">
+   		#mapid { height: 650px; }
+   		.legend{
+   			background: white;
+   			line-height: 1.5em;
+   			width: 20em;
+   			text-align: center;
+   		}
+   		.legend i{
+   			font-size: 1.3em;
+   		}
+   	</style>
+   	<script src="lines.geojson"></script>
+   	<script src="multilines.geojson"></script>
+   	<script src="multipolygons.geojson"></script>
+   	<script src="points.geojson"></script>
+</head>
+<body>
+	<nav class="navbar navbar-dark bg-dark">
+	  	<div class="mx-auto" style="width:225px;color: white;" >
+	  		<h1><b>Dijkstra-IO2</b></h1>
+		</div>
+	</nav>
+	<br>
+	<div class="row">
+		<div class="col-lg-3"></div>
+		<div class="col-lg-6">
+			<div class="input-group">
+		  		<input type="text" class="form-control" placeholder="Buscar Lugar..." aria-label="Buscar Lugar...">
+		  		<span class="input-group-btn">
+		    		<button class="btn btn-secondary" type="button">Go!</button>
+		  		</span>
+			</div>
+		</div>
+		<div class="col-lg-3"></div>	
+	</div>
+	<br>
+
+	<div id="mapid"></div>
+	<script src="js/jquery-slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/leaflet.label.js"></script>>
+	<script src="js/io2.js"></script>
+</body>
+</html>
