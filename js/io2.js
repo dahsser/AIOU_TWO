@@ -22,23 +22,22 @@ var countriesLayer=L.geoJson(
 //Meter fondo :v
 L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-    subdomains: ['a','b','c']
+    subdomains: ['a','b','c'],
+    maxZoom: 19
 }).addTo( mymap );
 index=1;
 L.geoJson(
 	multilines,
 	{style:GetCountriesStyle('white','#009933')}
 ).addTo(mymap);
-index=2;
 /*L.geoJson(
 	multipolygons,
-	{style:GetCountriesStyle('#b64a33','black')}
+	{style:GetCountriesStyle('','')}
 ).addTo(mymap);*/
-index=1;
-L.geoJson(
+/*L.geoJson(
 	points,
 	{style:GetCountriesStyle('white','white')}
-).addTo(mymap);
+).addTo(mymap);*/
 //mymap.fitBounds(countriesLayer.getBounds());
 
 
@@ -58,15 +57,15 @@ legend.onAdd = function(mymap){
 legend.addTo(mymap);
 
 //Label
-label = new L.Tooltip()
-label.setContent("static label")
+/*label = new L.Tooltip()
+label.setContent("Qué onda que pex :v")
 var labelLocation = new L.LatLng(-12.0186886,-77.0503163);
 label.setLatLng(labelLocation)
-mymap.showLabel(label);
+mymap.showLabel(label);*/
 
 function alertLL(e) {
-    alert("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng);
-    mymap.off('click', alertLL);
+    alert("{lat:"+ e.latlng.lat + ",lon:" + e.latlng.lng+"}");
+    //mymap.off('click', alertLL);
 }
 mymap.on('click', alertLL);
 
