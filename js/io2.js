@@ -59,12 +59,12 @@ legend.addTo(mymap);
 //Label
 /*label = new L.Tooltip()
 label.setContent("Qué onda que pex :v")
-var labelLocation = new L.LatLng(-12.0186886,-77.0503163);
+var labelLocation = new L.LatLng(-12.0152751,-77.0507482);
 label.setLatLng(labelLocation)
 mymap.showLabel(label);*/
 
 function alertLL(e) {
-    alert("{lat:"+ e.latlng.lat + ",lon:" + e.latlng.lng+"}");
+    alert("{lat:"+ e.latlng.lat.toFixed(7) + ",lon:" + e.latlng.lng.toFixed(7)+"}");
     //mymap.off('click', alertLL);
 }
 mymap.on('click', alertLL);
