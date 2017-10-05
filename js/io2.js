@@ -146,11 +146,14 @@ function SeleccionarOrigen(){
 	mymap.on('click', capturarClick);
 }
 function Go(){
-	alert("go");
 	dijkstra({lat:orLat,lon:orLon},{lat:destLat,lon:destLon});
 }
-
+var polyline;
 function dijkstra(origen,destino){
+	if(polyline!=undefined){
+		console.log("entro");
+		polyline.removeFrom(mymap);
+	}
 	//find dest point
 	var distancias = new Array(edges.length);
 	var padres = new Array(edges.length);
@@ -159,12 +162,12 @@ function dijkstra(origen,destino){
 	var indexOri,indexDest;
 	for(var x=1;x<edges.length;x+=1){
 		var distancia=Distance(destino,edges[x].latlng);
-		if(distancia<30 && distancia<distActual){
+		if(distancia<45 && distancia<distActual){
 			indexDest=x;
 			distActual=distancia;
 		}
 		distancia=Distance(origen,edges[x].latlng);
-		if(distancia<30 && distancia<distActual){
+		if(distancia<45 && distancia<distActual2){
 			indexOri=x;
 			distActual2=distancia;
 		}
@@ -172,24 +175,34 @@ function dijkstra(origen,destino){
 	destino=edges[indexDest];
 	origen=edges[indexOri];
 	for(var x=0;x<edges.length;x+=1){
-		distancias[x]=Infinity;
+		distancias[x]=1000000000;
 		padres[x] = null;
 		visto[x] = false;
 	}
-	distancias[indexOri]=0;
+	
 	var queue = new PriorityQueue({ comparator: function(a, b){
-		return b.dist - a.dist;
+		return a.dist - b.dist;
 	}});
-
+	distancias[indexOri]=0;
 	queue.queue({i:indexOri,dist:0});
-	console.log(queue)
-	return 0;
+	//console.log(queue);
+	//console.log(indexOri,indexDest);
 	while(queue.length!=0){
 		var u=queue.dequeue();
+		//console.log("u.i:",u.i);
+		//console.log("dist:",u.dist);
+		//console.log(edges[u.i].rela);
 		visto[u.i]=true;
 		for(var i=0;i<edges[u.i].rela.length;i+=1){
-			if(visto[edges[u.i].rela[i]]==false  && distancias[edges[u.i].rela[i]]> distancia[u.i]+Distance(edges[u.i].latlng,edges[edges[u.i].rela[i]].latlng)){
-				distancias[edges[u.i].rela[i]]=distancias[edges[u.i]]+Distance(edges[u.i].latlng,edges[edges[u.i].rela[i]].latlng);
+			/*console.log(edges[u.i].rela[i]);
+			console.log("edges rela[i]:",edges[u.i].rela[i]);
+			console.log("visto:",visto[edges[u.i].rela[i]]);
+			console.log("distancia:",distancias[edges[u.i].rela[i]]);
+			console.log("distancia2:",distancias[u.i]);
+			console.log("distancia u v",Distance(edges[u.i].latlng,edges[edges[u.i].rela[i]].latlng));*/
+			if(visto[edges[u.i].rela[i]]==false  && distancias[edges[u.i].rela[i]]> distancias[u.i]+Distance(edges[u.i].latlng,edges[edges[u.i].rela[i]].latlng)){
+				console.log("update dist:",distancias[u.i]+Distance(edges[u.i].latlng,edges[edges[u.i].rela[i]].latlng));
+				distancias[edges[u.i].rela[i]]=distancias[u.i]+Distance(edges[u.i].latlng,edges[edges[u.i].rela[i]].latlng);
 				padres[edges[u.i].rela[i]]=u.i;
 				queue.queue({i:edges[u.i].rela[i],dist:distancias[edges[u.i].rela[i]]});
 			}
@@ -198,11 +211,22 @@ function dijkstra(origen,destino){
 	}
 	var last=indexDest;
 	var route=[];
-	while(last!=indexOri){
+	/*for(var x=1;x<Math.min(padres.length,36);x+=1){
+		console.log(x,padres[x]);
+	}*/
+	while(last!=null){
 		route.push(last);
 		last=padres[last];
 	}
-	console.log(route);
+	route.reverse();
+	var latlngs = [[orLat,orLon]];
+	for(var i=0;i<route.length;i+=1){
+		latlngs.push([edges[route[i]].latlng.lat,edges[route[i]].latlng.lon]);
+	}
+	latlngs.push([destLat,destLon]);
+	console.log(latlngs);
+	polyline = L.polyline(latlngs,{color: 'black'});
+	polyline.addTo(mymap);
 }
 
 
