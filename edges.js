@@ -1,5 +1,7 @@
+//nodos de la UNI
+
 var edges=[
-  {latlng:{lat:,lng:},rela:[]},
+  {latlng:{lat:null,lng:null},rela:[]},
   {latlng:{lat:-12.0151780,lon:-77.0517030},rela:[2]},
   {latlng:{lat:-12.0153197,lon:-77.0516869},rela:[3]},
   {latlng:{lat:-12.0153066,lon:-77.0515475},rela:[4]},
@@ -75,55 +77,55 @@ var edges=[
   {latlng:{lat:-12.0201888,lon:-77.0471781},rela:[72]},
   {latlng:{lat:-12.0205272,lon:-77.0474356},rela:[72,75,81]},
   {latlng:{lat:-12.0205351,lon:-77.0483717},rela:[66,74,76]},//75
-  {latlng:{lat:,lng:},rela:[75,77,82]},
-  {latlng:{lat:,lng:},rela:[78,80,76]},
-  {latlng:{lat:,lng:},rela:[61,79,77]},
-  {latlng:{lat:,lng:},rela:[78]},
-  {latlng:{lat:,lng:},rela:[77]},//80
-  {latlng:{lat:,lng:},rela:[74,83,82]},
-  {latlng:{lat:,lng:},rela:[81,76,86]},
-  {latlng:{lat:,lng:},rela:[81,84,85]},
-  {latlng:{lat:,lng:},rela:[83]},
-  {latlng:{lat:,lng:},rela:[83]},//85
-  {latlng:{lat:,lng:},rela:[82,87]},
-  {latlng:{lat:,lng:},rela:[86,90]},
-  {latlng:{lat:,lng:},rela:[76,89]},
-  {latlng:{lat:,lng:},rela:[88,90]},
-  {latlng:{lat:,lng:},rela:[89,87,91,106]},//90
-  {latlng:{lat:,lng:},rela:[90,92]},
-  {latlng:{lat:,lng:},rela:[93,91]},
-  {latlng:{lat:,lng:},rela:[92,94]},
-  {latlng:{lat:,lng:},rela:[93,95]},
-  {latlng:{lat:,lng:},rela:[94,96]},//95
-  {latlng:{lat:,lng:},rela:[95,97,112,113]},
-  {latlng:{lat:,lng:},rela:[98,96,77]},
-  {latlng:{lat:,lng:},rela:[99,101,97]},
-  {latlng:{lat:,lng:},rela:[98,100]},
-  {latlng:{lat:,lng:},rela:[99]},//100
-  {latlng:{lat:,lng:},rela:[98,102]},
-  {latlng:{lat:,lng:},rela:[101,103]},
-  {latlng:{lat:,lng:},rela:[102,105]},
-  {latlng:{lat:,lng:},rela:[113,114]},
-  {latlng:{lat:,lng:},rela:[103]},//105
-  {latlng:{lat:,lng:},rela:[90,107]},
-  {latlng:{lat:,lng:},rela:[106,108]},
-  {latlng:{lat:,lng:},rela:[107,109,116]},
-  {latlng:{lat:,lng:},rela:[110,108,122]},
-  {latlng:{lat:,lng:},rela:[111,109]},//110
-  {latlng:{lat:,lng:},rela:[110]},
-  {latlng:{lat:,lng:},rela:[96,114,115]},
-  {latlng:{lat:,lng:},rela:[96,104]},
-  {latlng:{lat:,lng:},rela:[104,112]},
-  {latlng:{lat:,lng:},rela:[112,116]},//115
-  {latlng:{lat:,lng:},rela:[108,115,117]},
-  {latlng:{lat:,lng:},rela:[116,118,120]},
-  {latlng:{lat:,lng:},rela:[119,117]},
-  {latlng:{lat:,lng:},rela:[118]},
-  {latlng:{lat:,lng:},rela:[117,121]},//120
-  {latlng:{lat:,lng:},rela:[120,123]},
-  {latlng:{lat:,lng:},rela:[123,109]},
-  {latlng:{lat:,lng:},rela:[121,122]},
-  {latlng:{lat:,lng:},rela:[61,60]},
-  {latlng:{lat:,lng:},rela:[53]},//125
-  {latlng:{lat:,lng:},rela:[53,60]}
+  {latlng:{lat:-12.0210309,lon:-77.0483771},rela:[75,77,82]},
+  {latlng:{lat:-12.0210256,lon:-77.0494312},rela:[78,80,76]},
+  {latlng:{lat:-12.0204642,lon:-77.0494151},rela:[61,79,77]},
+  {latlng:{lat:-12.0204616,lon:-77.0489055},rela:[78]},
+  {latlng:{lat:-12.0210152,lon:-77.0503968},rela:[77]},//80
+  {latlng:{lat:-12.0209548,lon:-77.0475107},rela:[74,83,82]},
+  {latlng:{lat:-12.0210440,lon:-77.0475349},rela:[81,76,86]},
+  {latlng:{lat:-12.0210178,lon:-77.0469797},rela:[81,84,85]},
+  {latlng:{lat:-12.0206164,lon:-77.0469287},rela:[83]},
+  {latlng:{lat:-12.0210493,lon:-77.0466846},rela:[83]},//85
+  {latlng:{lat:-12.0217445,lon:-77.0476878},rela:[82,87]},
+  {latlng:{lat:-12.0217812,lon:-77.0478272},rela:[86,90]},
+  {latlng:{lat:-12.0216736,lon:-77.0483610},rela:[76,89]},
+  {latlng:{lat:-12.0218756,lon:-77.0482752},rela:[88,90]},
+  {latlng:{lat:-12.0220357,lon:-77.0481384},rela:[89,87,91,106]},//90
+  {latlng:{lat:-12.0221590,lon:-77.0482779},rela:[90,92]},
+  {latlng:{lat:-12.0221878,lon:-77.0487016},rela:[93,91]},
+  {latlng:{lat:-12.0222691,lon:-77.0487794},rela:[92,94]},
+  {latlng:{lat:-12.0223688,lon:-77.0487687},rela:[93,95]},
+  {latlng:{lat:-12.0223924,lon:-77.0490718},rela:[94,96]},//95
+  {latlng:{lat:-12.0225026,lon:-77.0492542},rela:[95,97,112,113]},
+  {latlng:{lat:-12.0223295,lon:-77.0494714},rela:[98,96,77]},
+  {latlng:{lat:-12.0221432,lon:-77.0496726},rela:[99,101,97]},
+  {latlng:{lat:-12.0220776,lon:-77.0497423},rela:[98,100]},
+  {latlng:{lat:-12.0220566,lon:-77.0503002},rela:[99]},//100
+  {latlng:{lat:-12.0222796,lon:-77.0498174},rela:[98,102]},
+  {latlng:{lat:-12.0222875,lon:-77.0498899},rela:[101,103]},
+  {latlng:{lat:-12.0224160,lon:-77.0498952},rela:[102,105]},
+  {latlng:{lat:-12.0233683,lon:-77.0495304},rela:[113,114]},
+  {latlng:{lat:-12.0224082,lon:-77.0503700},rela:[103]},//105
+  {latlng:{lat:-12.0222324,lon:-77.0479506},rela:[90,107]},
+  {latlng:{lat:-12.0225210,lon:-77.0477495},rela:[106,108]},
+  {latlng:{lat:-12.0233946,lon:-77.0477656},rela:[107,109,116]},
+  {latlng:{lat:-12.0235021,lon:-77.0465371},rela:[110,108,122]},
+  {latlng:{lat:-12.0228410,lon:-77.0467383},rela:[111,109]},//110
+  {latlng:{lat:-12.0226128,lon:-77.0471004},rela:[110]},
+  {latlng:{lat:-12.0230430,lon:-77.0486695},rela:[96,114,115]},
+  {latlng:{lat:-12.0231453,lon:-77.0498684},rela:[96,104]},
+  {latlng:{lat:-12.0236018,lon:-77.0492113},rela:[104,112]},
+  {latlng:{lat:-12.0236648,lon:-77.0479614},rela:[112,116]},//115
+  {latlng:{lat:-12.0236805,lon:-77.0477763},rela:[108,115,117]},
+  {latlng:{lat:-12.0240215,lon:-77.0477843},rela:[116,118,120]},
+  {latlng:{lat:-12.0243390,lon:-77.0480794},rela:[119,117]},
+  {latlng:{lat:-12.0241396,lon:-77.0483369},rela:[118]},
+  {latlng:{lat:-12.0243705,lon:-77.0477521},rela:[117,121]},//120
+  {latlng:{lat:-12.0249240,lon:-77.0471057},rela:[120,123]},
+  {latlng:{lat:-12.0244990,lon:-77.0465988},rela:[123,109]},
+  {latlng:{lat:-12.0250735,lon:-77.0471728},rela:[121,122]},
+  {latlng:{lat:-12.0198477,lon:-77.0493641},rela:[61,60]},
+  {latlng:{lat:-12.0190214,lon:-77.0486936},rela:[53]},//125
+  {latlng:{lat:-12.0191525,lon:-77.0495385},rela:[53,60]}
 ]

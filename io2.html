@@ -7,9 +7,13 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/leaflet.css">
 	<link rel="stylesheet" type="text/css" href="css/leaflet.label.css">
+	<link rel="stylesheet" type="text/css" href="css/io2.css">
     <script src="js/leaflet.js"></script>
    	<style type="text/css">
-   		#mapid { height: 650px; }
+   		#mapid { 
+   			height: 550px; 
+   			width: 750px;
+   		}
    		.legend{
    			background: white;
    			line-height: 1.5em;
@@ -24,33 +28,46 @@
    	<script src="multilines.geojson"></script>
    	<script src="multipolygons.geojson"></script>
    	<script src="points.geojson"></script>
+   	<script src="places.js"></script>
+   	<script src="edges.js"></script>
 </head>
 <body>
 	<nav class="navbar navbar-dark bg-dark">
-	  	<div class="mx-auto" style="width:225px;color: white;" >
+	  	<div class="mx-auto" style="width:240px;color: white;" >
 	  		<h1><b>Dijkstra-IO2</b></h1>
 		</div>
 	</nav>
 	<br>
 	<div class="row">
-		<div class="col-lg-3"></div>
-		<div class="col-lg-6">
-			<div class="input-group">
-		  		<input type="text" class="form-control" placeholder="Buscar Lugar..." aria-label="Buscar Lugar...">
+		<div class="col-lg-4">
+		    <div class="input-group" style="margin-left: 10px;"">
+      			<span class="input-group-btn">
+        			<button onclick="SeleccionarOrigen()" class="btn btn-secondary" type="button">Origen</button>
+      			</span>
+			      <input type="text" id="origen" class="form-control" placeholder="latitud,longitud" aria-label="latlon">
+    		</div>
+			<div class="input-group" style="margin-left: 10px;">
+		  		<input type="text" id="searchinput" class="form-control" placeholder="Buscar..." aria-label="Buscar Lugar..." onkeyup="Buscador()"/>
 		  		<span class="input-group-btn">
-		    		<button class="btn btn-secondary" type="button">Go!</button>
+		    		<button class="btn btn-secondary" onclick="Go();" type="button">Go</button>
 		  		</span>
 			</div>
+			<ul id="myUL" style="margin-left: 10px;">
+		  	
+			</ul>	
 		</div>
-		<div class="col-lg-3"></div>	
+		<div class="col-lg-8">
+			<div id="mapid"></div>
+		</div>
 	</div>
 	<br>
 
-	<div id="mapid"></div>
+	
 	<script src="js/jquery-slim.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/leaflet.label.js"></script>>
+    <script src="js/priorityqueue.js"></script>
 	<script src="js/io2.js"></script>
 </body>
 </html>
