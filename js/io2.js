@@ -83,7 +83,7 @@ function Buscador(){
 
     for (i = 0; i <as.length; i++) {
      	a=as[i];
-        if (a.innerHTML.toUpperCase().indexOf(filter) > -1 && count<=10) {
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1 && count<10) {
             a.style.display = "";
             count+=1;
         } else {
@@ -184,6 +184,10 @@ function dijkstra(origen,destino){
 			indexOri=x;
 			distActual2=distancia;
 		}
+	}
+	if(indexOri==undefined || indexDest==undefined){
+		alert("Alguna coordenada no es válida");
+		return ;
 	}
 	destino=edges[indexDest];
 	origen=edges[indexOri];
