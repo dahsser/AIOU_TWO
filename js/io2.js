@@ -43,7 +43,6 @@ L.geoJson(
 var legend = L.control({position:'bottomright'});
 legend.onAdd = function(mymap){
 	var div = L.DomUtil.create('div','legend');
-	var grades=[12345,9999999];
 	div.innerHTML +='<b><i>Investigación de Operaciones 2</i></b>';
 	div.innerHTML +='<br><i>Universidad Nacional de Ingenieria</i>';
 	
@@ -58,25 +57,20 @@ var labelLocation = new L.LatLng(-12.0152751,-77.0507482);
 label.setLatLng(labelLocation)
 mymap.showLabel(label);*/
 
-//Capturacion manual de puntos
-/*function alertLL(e) {
-    alert("{lat:"+ e.latlng.lat.toFixed(7) + ",lon:" + e.latlng.lng.toFixed(7)+"}");
-    //mymap.off('click', alertLL);
-}
-mymap.on('click', alertLL);*/
-
-
-/*var point=[-12.0186886,-77.0503163];
-var marker = L.marker(point).addTo(mymap);*/
 
 ul = document.getElementById("myUL");
 places.sort(function(a,b){
 	return a.name.toUpperCase().localeCompare(b.name.toUpperCase());
 });
 (function(){
-	for (var i=0;i<Math.min(places.length,100);i+=1) {
+	for (var i=0;i<places.length;i+=1) {
     	var place = places[i];
-    	ul.innerHTML+="<li><a href='#' onclick='return Marker("+place.latlon.lat+","+place.latlon.lon+")'>"+place.name+"</a></li>";
+    	if(i<=8){
+    		ul.innerHTML+="<a  class='list-group-item list-group-item-action' href='#' onclick='return Marker("+place.latlon.lat+","+place.latlon.lon+")'>"+place.name+"</a>";
+    	}else{
+    		ul.innerHTML+="<a  class='list-group-item list-group-item-action' style='display: none; href='#' onclick='return Marker("+place.latlon.lat+","+place.latlon.lon+")'>"+place.name+"</a>";
+    	}
+    	
 	}
 })();
 
@@ -85,15 +79,15 @@ function Buscador(){
     input = document.getElementById('searchinput');
     filter = input.value.toUpperCase();
     ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName('li');
+    as = ul.getElementsByTagName('a');
 
-    for (i = 0; i <li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
+    for (i = 0; i <as.length; i++) {
+     	a=as[i];
         if (a.innerHTML.toUpperCase().indexOf(filter) > -1 && count<=10) {
-            li[i].style.display = "";
+            a.style.display = "";
             count+=1;
         } else {
-            li[i].style.display = "none";
+            a.style.display = "none";
         }
     }
 }
@@ -131,6 +125,25 @@ function Distance(p1,p2){
 var queue = new PriorityQueue({ comparator: function(a, b) { return b - a; }})
 var lowest = queue.dequeue(); // returns 5
 console.log(lowest);*/
+
+//Agregar Puerta 3 5 6
+document.getElementById("pt3").addEventListener("click", 
+	function(){
+		capturarClick({latlng:{lat:-12.0245646,lng:-77.0481607}})
+	}
+);
+document.getElementById("pt5").addEventListener("click", 
+	function(){
+		capturarClick({latlng:{lat:-12.0179405,lng:-77.0508984}})
+	}
+);
+document.getElementById("pt6").addEventListener("click", 
+	function(){
+		capturarClick({latlng:{lat:-12.0151859,lng:-77.0517763}})
+	}
+);
+
+
 var orLat,orLon;
 var destLat,destLon;
 function capturarClick(e) {

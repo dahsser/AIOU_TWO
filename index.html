@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="css/leaflet.css">
 	<link rel="stylesheet" type="text/css" href="css/leaflet.label.css">
 	<link rel="stylesheet" type="text/css" href="css/io2.css">
+	<link rel="stylesheet" type="text/css" href="css/background.css">
     <script src="js/leaflet.js"></script>
    	<script src="lines.geojson"></script>
    	<script src="multilines.geojson"></script>
@@ -17,48 +18,58 @@
    	<script src="edges.js"></script>
 </head>
 <body>
+	<div id="stars"></div>
+	<div id="stars2"></div>
+	<div id="stars3"></div>
 	<nav class="navbar navbar-dark bg-dark">
-	  	<div class="mx-auto" style="width:240px;color: white;" >
-	  		<h1><b>Dijkstra-IO2</b></h1>
+	  	<div class="mx-auto" style="color: white;display: inline;" >
+	  		<h3>Investigación de Operaciones II</h3>
+	  		<h4 class="text-center"><b>Dijkstra's algorithm</b></h4>
 		</div>
 	</nav>
 	<br>
-	<div class="row">
-		<div class="col-lg-4">
-			<div class="card text-white bg-dark mb-3 mx-auto" style="max-width: 25rem;">
-				<div class="card-body">
-					<h4 class="card-title text-center">Origen predeterminado</h4>
-					<div class="puerta text-center">
-						<button type="button" class="btn btn-outline-info">Puerta 3</button>
-						<button type="button" class="btn btn-outline-info">Puerta 5</button>
-						<button type="button" class="btn btn-outline-info">Puerta 6</button>	
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-2">
+				<div class="card text-white bg-dark mb-3 mx-auto" style="max-width: 25rem;">
+					<div class="card-header"><h4>Origen</h4></div>
+					<div class="card-body">
+						<h5 class="card-title text-center">Predeterminado</h5>
+						<div class="puerta text-center">
+							<button id="pt3" type="button" class="btn btn-outline-info">Puerta 3</button>
+							<button id="pt5" type="button" class="btn btn-outline-info">Puerta 5</button>
+							<button id="pt6" type="button" class="btn btn-outline-info">Puerta 6</button>	
+						</div>
+						<br>
+						<h5 class="card-title text-center">Manual</h5>
+		      			<button onclick="SeleccionarOrigen()" type="button" class="btn btn-primary btn-block">Click!</button>
+						
+						<div class="input-group">
+				    	  	<input type="text" id="origen" class="form-control text-center" placeholder="latitud,longitud" aria-label="latlon">
+	    				</div>
 					</div>
-					<h4 class="card-title text-center">Origen Manual</h4>
-					<div class="input-group" style="margin-left: 10px;">
-      				<span class="input-group-btn">
-        			<button onclick="SeleccionarOrigen()" class="btn btn-secondary" type="button">Origen Manual</button>
-      			</span>
-			      <input type="text" id="origen" class="form-control" placeholder="latitud,longitud" aria-label="latlon">
-    		</div>
+				</div>				
+			</div>
+			<div class="col-lg-3">
+				<div class="card text-white bg-dark mb-3 mx-auto" style="max-width: 25rem;">
+					<div class="card-header"><h4>Destino</h4></div>
+					<div class="card-body">
+						<div class="input-group" style="margin-bottom: 3px">
+			  				<input type="text" id="searchinput" class="form-control" placeholder="Buscar..." aria-label="Buscar Lugar..." onkeyup="Buscador()"/>
+			  				<span class="input-group-btn">
+			    				<button class="btn btn-secondary" onclick="Go();" type="button">Go</button>
+			  				</span>
+						</div>
+						<ul class="list-group" id="myUL">
+						</ul>	
+					</div>
 				</div>
-				
 			</div>
-			<div class="input-group" style="margin-left: 10px;">
-		  		<input type="text" id="searchinput" class="form-control" placeholder="Buscar..." aria-label="Buscar Lugar..." onkeyup="Buscador()"/>
-		  		<span class="input-group-btn">
-		    		<button class="btn btn-secondary" onclick="Go();" type="button">Go</button>
-		  		</span>
+			<div class="col-lg-6">
+				<div class="mx-auto" id="mapid"></div>
 			</div>
-			<ul id="myUL" style="margin-left: 10px;">
-		  	
-			</ul>	
-		</div>
-		<div class="col-lg-8">
-			<div id="mapid"></div>
 		</div>
 	</div>
-	<br>
-
 	
 	<script src="js/jquery-slim.min.js"></script>
     <script src="js/popper.min.js"></script>
