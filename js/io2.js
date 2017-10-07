@@ -194,12 +194,6 @@ function dijkstra(origen,destino){
 		//console.log(edges[u.i].rela);
 		visto[u.i]=true;
 		for(var i=0;i<edges[u.i].rela.length;i+=1){
-			/*console.log(edges[u.i].rela[i]);
-			console.log("edges rela[i]:",edges[u.i].rela[i]);
-			console.log("visto:",visto[edges[u.i].rela[i]]);
-			console.log("distancia:",distancias[edges[u.i].rela[i]]);
-			console.log("distancia2:",distancias[u.i]);
-			console.log("distancia u v",Distance(edges[u.i].latlng,edges[edges[u.i].rela[i]].latlng));*/
 			if(visto[edges[u.i].rela[i]]==false  && distancias[edges[u.i].rela[i]]> distancias[u.i]+Distance(edges[u.i].latlng,edges[edges[u.i].rela[i]].latlng)){
 				console.log("update dist:",distancias[u.i]+Distance(edges[u.i].latlng,edges[edges[u.i].rela[i]].latlng));
 				distancias[edges[u.i].rela[i]]=distancias[u.i]+Distance(edges[u.i].latlng,edges[edges[u.i].rela[i]].latlng);

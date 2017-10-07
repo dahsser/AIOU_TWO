@@ -9,21 +9,6 @@
 	<link rel="stylesheet" type="text/css" href="css/leaflet.label.css">
 	<link rel="stylesheet" type="text/css" href="css/io2.css">
     <script src="js/leaflet.js"></script>
-   	<style type="text/css">
-   		#mapid { 
-   			height: 550px; 
-   			width: 750px;
-   		}
-   		.legend{
-   			background: white;
-   			line-height: 1.5em;
-   			width: 20em;
-   			text-align: center;
-   		}
-   		.legend i{
-   			font-size: 1.3em;
-   		}
-   	</style>
    	<script src="lines.geojson"></script>
    	<script src="multilines.geojson"></script>
    	<script src="multipolygons.geojson"></script>
@@ -40,12 +25,24 @@
 	<br>
 	<div class="row">
 		<div class="col-lg-4">
-		    <div class="input-group" style="margin-left: 10px;"">
-      			<span class="input-group-btn">
-        			<button onclick="SeleccionarOrigen()" class="btn btn-secondary" type="button">Origen</button>
+			<div class="card text-white bg-dark mb-3 mx-auto" style="max-width: 25rem;">
+				<div class="card-body">
+					<h4 class="card-title text-center">Origen predeterminado</h4>
+					<div class="puerta text-center">
+						<button type="button" class="btn btn-outline-info">Puerta 3</button>
+						<button type="button" class="btn btn-outline-info">Puerta 5</button>
+						<button type="button" class="btn btn-outline-info">Puerta 6</button>	
+					</div>
+					<h4 class="card-title text-center">Origen Manual</h4>
+					<div class="input-group" style="margin-left: 10px;">
+      				<span class="input-group-btn">
+        			<button onclick="SeleccionarOrigen()" class="btn btn-secondary" type="button">Origen Manual</button>
       			</span>
 			      <input type="text" id="origen" class="form-control" placeholder="latitud,longitud" aria-label="latlon">
     		</div>
+				</div>
+				
+			</div>
 			<div class="input-group" style="margin-left: 10px;">
 		  		<input type="text" id="searchinput" class="form-control" placeholder="Buscar..." aria-label="Buscar Lugar..." onkeyup="Buscador()"/>
 		  		<span class="input-group-btn">

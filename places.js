@@ -155,5 +155,7 @@ var places=[ { name: 'Losa Deportiva FC',
     latlon: { lon: -77.0480998, lat: -12.0245048 } },
   { name: 'CTIC - UNI',
     latlon: { lon: -77.0499644, lat: -12.0166766 } },
+  { name: 'Sistemas UNI',
+    latlon: { lon: -77.0493892, lat: -12.0158155 } }
   ]
 
