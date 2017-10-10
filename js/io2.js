@@ -132,6 +132,11 @@ document.getElementById("pt3").addEventListener("click",
 		capturarClick({latlng:{lat:-12.0245646,lng:-77.0481607}})
 	}
 );
+document.getElementById("pt4").addEventListener("click", 
+	function(){
+		capturarClick({latlng:{lat:-12.0231427,lng:-77.0498720}})
+	}
+);
 document.getElementById("pt5").addEventListener("click", 
 	function(){
 		capturarClick({latlng:{lat:-12.0179405,lng:-77.0508984}})

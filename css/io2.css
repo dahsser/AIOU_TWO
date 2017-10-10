@@ -32,3 +32,17 @@
 .puerta button{
     padding: 10px 20px;
 }
+
+#mapMarker{
+  -webkit-animation-duration: 2s;
+  -webkit-animation-delay: 1s;
+  margin-bottom:10px;
+}
+.card-header h4{
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+.navbar h3{
+    font-weight: 700;
+    text-transform: uppercase;
+}

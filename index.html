@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/leaflet.label.css">
 	<link rel="stylesheet" type="text/css" href="css/io2.css">
 	<link rel="stylesheet" type="text/css" href="css/background.css">
+	<link rel="stylesheet" href="css/animate.min.css">
     <script src="js/leaflet.js"></script>
    	<script src="lines.geojson"></script>
    	<script src="multilines.geojson"></script>
@@ -18,12 +19,10 @@
    	<script src="edges.js"></script>
 </head>
 <body>
-	<div id="stars"></div>
-	<div id="stars2"></div>
-	<div id="stars3"></div>
+
 	<nav class="navbar navbar-dark bg-dark">
 	  	<div class="mx-auto" style="color: white;display: inline;" >
-	  		<h3>Investigación de Operaciones II</h3>
+	  		<h3 >Investigación de Operaciones II</h3>
 	  		<h4 class="text-center"><b>Dijkstra's algorithm</b></h4>
 		</div>
 	</nav>
@@ -31,28 +30,37 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-lg-2">
-				<div class="card text-white bg-dark mb-3 mx-auto" style="max-width: 25rem;">
-					<div class="card-header"><h4>Origen</h4></div>
-					<div class="card-body">
-						<h5 class="card-title text-center">Predeterminado</h5>
-						<div class="puerta text-center">
-							<button id="pt3" type="button" class="btn btn-outline-info">Puerta 3</button>
-							<button id="pt5" type="button" class="btn btn-outline-info">Puerta 5</button>
-							<button id="pt6" type="button" class="btn btn-outline-info">Puerta 6</button>	
-						</div>
-						<br>
+				<div class="card text-white bg-info mb-3 mx-auto" style="max-width: 25rem;">
+					<div class="card-header">
+						<h4 style="display: inline-block;">Origen</h4>
+						<img id="mapMarker" class="icon animated bounce" src="images/Entypo+/location-pin.svg" alt="Location pin pictogram" style="width:30px;">
+					</div>
+					<div class="card-body">			
 						<h5 class="card-title text-center">Manual</h5>
 		      			<button onclick="SeleccionarOrigen()" type="button" class="btn btn-primary btn-block">Click!</button>
 						
 						<div class="input-group">
 				    	  	<input type="text" id="origen" class="form-control text-center" placeholder="latitud,longitud" aria-label="latlon">
 	    				</div>
+	    				<br>
+						<h5 class="card-title text-center">Predeterminado</h5>
+						<div class="puerta text-center">
+							<button id="pt3" type="button" class="btn btn-light">Puerta 3</button>
+							<button id="pt4" type="button" class="btn btn-light">Puerta 4</button>		
+							<button id="pt5" type="button" class="btn btn-light">Puerta 5</button>
+
+							<button id="pt6" type="button" class="btn btn-light">Puerta 6</button>
+
+						</div>
 					</div>
 				</div>				
 			</div>
 			<div class="col-lg-3">
-				<div class="card text-white bg-dark mb-3 mx-auto" style="max-width: 25rem;">
-					<div class="card-header"><h4>Destino</h4></div>
+				<div class="card text-white bg-info mb-3 mx-auto" style="max-width: 25rem;">
+					<div class="card-header">
+						<h4 style="display: inline-block;">Destino</h4>
+						<img id="mapMarker" class="icon animated bounce" src="images/Entypo+/location-pin.svg" alt="Location pin pictogram" style="width:30px;">
+					</div>
 					<div class="card-body">
 						<div class="input-group" style="margin-bottom: 3px">
 			  				<input type="text" id="searchinput" class="form-control" placeholder="Buscar..." aria-label="Buscar Lugar..." onkeyup="Buscador()"/>
@@ -70,7 +78,9 @@
 			</div>
 		</div>
 	</div>
-	
+	<div id="stars"></div>
+	<div id="stars2"></div>
+	<!--<div id="stars3"></div>-->
 	<script src="js/jquery-slim.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
