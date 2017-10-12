@@ -121,10 +121,6 @@ function Distance(p1,p2){
 	return  R * c;
 }
 
-/*
-var queue = new PriorityQueue({ comparator: function(a, b) { return b - a; }})
-var lowest = queue.dequeue(); // returns 5
-console.log(lowest);*/
 
 //Agregar Puerta 3 5 6
 document.getElementById("pt3").addEventListener("click", 
@@ -207,13 +203,8 @@ function dijkstra(origen,destino){
 	}});
 	distancias[indexOri]=0;
 	queue.queue({i:indexOri,dist:0});
-	//console.log(queue);
-	//console.log(indexOri,indexDest);
 	while(queue.length!=0){
 		var u=queue.dequeue();
-		//console.log("u.i:",u.i);
-		//console.log("dist:",u.dist);
-		//console.log(edges[u.i].rela);
 		visto[u.i]=true;
 		for(var i=0;i<edges[u.i].rela.length;i+=1){
 			if(visto[edges[u.i].rela[i]]==false  && distancias[edges[u.i].rela[i]]> distancias[u.i]+Distance(edges[u.i].latlng,edges[edges[u.i].rela[i]].latlng)){

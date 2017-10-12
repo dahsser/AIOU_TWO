@@ -38,7 +38,7 @@
   -webkit-animation-delay: 1s;
   margin-bottom:10px;
 }
-.card-header h4{
+.card-header h4,#results{
     margin-top: 10px;
     margin-bottom: 0px;
 }
