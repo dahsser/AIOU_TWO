@@ -56,7 +56,7 @@ label.setContent("Qué onda que pex :v")
 var labelLocation = new L.LatLng(-12.0152751,-77.0507482);
 label.setLatLng(labelLocation)
 mymap.showLabel(label);*/
-
+label = new L.Tooltip();
 
 ul = document.getElementById("myUL");
 places.sort(function(a,b){
@@ -234,6 +234,15 @@ function dijkstra(origen,destino){
 	console.log(latlngs);
 	polyline = L.polyline(latlngs,{color: 'black'});
 	polyline.addTo(mymap);
+	//Label distance
+	/*label.setContent();
+	var labelLocation = new L.LatLng(destLat,destLon);
+	label.setLatLng(labelLocation)
+	mymap.showLabel(label);*/
+	var popup = L.popup()
+    .setLatLng({lat:destLat,lon:destLon})
+    .setContent("<p>"+(distancias[indexDest]/75.0).toFixed(1)+" min<br/>"+distancias[indexDest].toFixed(1)+' m</p>')
+    .openOn(mymap);
 }
 
 
